@@ -22,6 +22,11 @@ diff:
     name: rancher-monitoring-admission
     jsonPointers:
     - "/webhooks"
+  - apiVersion: servicemonitor. monitoring.coreos.com/v1
+    kind: ServiceMonitor
+    name: rancher-monitoring-kubelet
+    operations:
+    - {"op":"remove", "path":"/spec/endpoints"}
   - apiVersion: admissionregistration.k8s.io/v1
     kind: MutatingWebhookConfiguration
     name: rancher-monitoring-admission
